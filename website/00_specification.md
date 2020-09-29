@@ -8,17 +8,6 @@ Design (CSS): --insert your name---
 If same person please complete Implementation beforehand.
 ```
 
-Should support the following functionality:
-
-* Discord Link
-* Embed YouTube stream
-* Embed stream schedule
-* Embed Chat
-* WebPush for stream notifications
-
-Please specify properties that have special handling in the CalDav claendar.
-Bonus points if seamlessly managable as Google Calendar.
-
 Discord Link
 ============
 
@@ -30,11 +19,11 @@ Embed YouTube stream
 
 Needs non static server backend.
 
-Shall be visible prominantly when stream is running. Might need to fiddle with
-YouTube APIs and special access to google account. The streams are all set to
-non-public, link only visible. Provide easy and prominent abillity to go to
-YouTube page (means app on mobile). The website is not the primary place to
-view the stream. React on stream state change without page reload.
+YouTube does not allow embed. There is no link to a livestream valid for all
+events of a channel. Create YouTube stream event beforehand based on Google
+calendar. Set the link to the current valid event on the website based on the
+next upcoming event.
+
 
 Embed stream schedule
 =====================
@@ -42,12 +31,15 @@ Embed stream schedule
 Allow display of a CalDav calendar source. Display the current week. Allow to
 view the other week.
 
+Probably easier to transform the Google calendar into a simple json file at
+a know location. Apply filtering at this step. Then use a javascript claendar
+widget to display everything.
+
 Embed Chat
 ==========
 
-Probably a Discord widget. Display only when stream is active. Do not unload
-automatically when stream ends. Only load when stream becomes active.
-Stream might become active without page reload.
+Do not use the Discord widget. Link to an invite which does not need a Discord
+account. Link to #chat not #welcome.
 
 WebPush for stream notifications
 ================================
@@ -61,3 +53,8 @@ to YouTube page (So that app opens on mobile), not our website. Allow for
 unregister. Send notifications automatically when YoutTube stream starts.
 Allow user to set reminder when stream is scheduled (User selects category and
 time delta). Use CalDav as schedule source.
+
+Discord for notifications
+=========================
+
+Send messages via webhook when time reached for upcoming event.
